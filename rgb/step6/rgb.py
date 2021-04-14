@@ -23,3 +23,15 @@ class RgbColor:
     @staticmethod
     def _hex(value: int) -> str:
         return "{:02x}".format(value)
+
+    # new method
+    @classmethod
+    def parse_hex_triplet(cls, triplet: str) -> "RgbColor":
+        triplet_hex_value = triplet[1:]
+        triplet_int_value = int(triplet_hex_value, 16)
+        b = triplet_int_value & 0xff
+        triplet_int_value >>= 8
+        g = triplet_int_value & 0xff
+        triplet_int_value >>= 8
+        r = triplet_int_value & 0xff
+        return RgbColor(r, g, b)

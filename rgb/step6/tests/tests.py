@@ -38,6 +38,14 @@ class RgbStep6Tests(TestCase):
         with self.assertRaises(ValueError):
             RgbColor(r, g, b)
 
+    # new property
+    @given(colors())
+    def test_parsing_hex_triplet_returns_same_color(
+            self, color: RgbColor):
+        triplet = color.to_hex_triplet()
+        parsed_color = RgbColor.parse_hex_triplet(triplet)
+        self.assertEqual(color, parsed_color)
+
 
 def _is_valid_component(value: int) -> bool:
     return 0 <= value <= 255
