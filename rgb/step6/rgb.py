@@ -7,7 +7,6 @@ class RgbColor:
     g: int
     b: int
 
-    # validation of input arguments
     def __post_init__(self) -> None:
         self._assert_8_bit(self.r)
         self._assert_8_bit(self.g)
