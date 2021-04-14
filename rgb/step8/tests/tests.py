@@ -4,7 +4,7 @@ from hypothesis import given, assume
 from hypothesis.strategies import integers, SearchStrategy, composite, \
     text
 
-from rgb.step7.rgb import RgbColor
+from rgb.step8.rgb import RgbColor
 
 
 def color_components() -> SearchStrategy[int]:
@@ -19,7 +19,7 @@ def colors(draw):
         draw(color_components()))
 
 
-class RgbStep7Tests(TestCase):
+class RgbStep8Tests(TestCase):
     def test_hex_triplet_representation_is_correct(self):
         color = RgbColor(33, 52, 165)
         self.assertEqual("#2134a5", color.to_hex_triplet())
@@ -46,7 +46,6 @@ class RgbStep7Tests(TestCase):
         parsed_color = RgbColor.parse_hex_triplet(triplet)
         self.assertEqual(color, parsed_color)
 
-    # new property
     @given(text())
     def test_parsing_raises_value_error_on_wrong_input(
             self, parsing_input: str):
