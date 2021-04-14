@@ -1,0 +1,4 @@
+[virtualenvs]
+# Tells Poetry to generate the virtual environment for this project inside the
+# project directory structure.
+in-project = true
