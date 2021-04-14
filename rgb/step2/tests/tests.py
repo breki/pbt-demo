@@ -10,6 +10,7 @@ class RgbStep2Tests(TestCase):
         color = RgbColor(33, 52, 165)
         self.assertEqual("#2134a5", color.to_hex_triplet())
 
+    # introducing first property
     @given(integers(), integers(), integers())
     def test_hex_triplet_is_7_characters_long(
             self, r: int, g: int, b: int):
