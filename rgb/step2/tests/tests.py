@@ -15,4 +15,6 @@ class RgbStep2Tests(TestCase):
     def test_hex_triplet_is_7_characters_long(
             self, r: int, g: int, b: int):
         color = RgbColor(r, g, b)
-        self.assertEqual(7, len(color.to_hex_triplet()))
+        triplet = color.to_hex_triplet()
+        print(triplet)
+        self.assertEqual(7, len(triplet))
